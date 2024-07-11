@@ -1,0 +1,195 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body,
+html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-family: monospace;
+}
+
+.background {
+    background-image: url("img/greenscreen.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -2;
+}
+
+.overlay {
+    background-image: url("img/lines.webp");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0.08; /*AJUSTE DE OPACIDADE*/
+    z-index: -1;
+}
+
+.screen {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.screen-box {
+    z-index: 100;
+    width: 120vh;
+    height: 70vh;
+    /* overflow: hidden; */
+    /* background-color: red; */
+    position: relative;
+}
+
+.text {
+    color: #4f5;
+    text-shadow: 0em 0em 0.5em #23824c;
+    font-size: 20pt;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+}
+
+.title {
+    text-align: center;
+}
+
+.typewriter h1 {
+    border-right: 0.15em solid #fff;
+    white-space: nowrap;
+    overflow: hidden;
+    animation: caret 0.7s steps(1) infinite;
+    font-size: 1em;
+}
+
+@keyframes caret {
+    50% {
+        border-color: transparent;
+    }
+}
+
+/* BOTÃO */
+
+#botao {
+    right: 0;
+    bottom: 0;
+    position: absolute;
+}
+
+.button {
+    -webkit-appearance: none;
+    appearance: none;
+    position: relative;
+    border-width: 0;
+    padding: 0 8px 12px;
+    min-width: 10em;
+    box-sizing: border-box;
+    background: transparent;
+    font: inherit;
+    cursor: pointer;
+}
+
+.button-top {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 0;
+    padding: 8px 16px;
+    transform: translateY(0);
+    text-align: center;
+    color: #fff;
+    text-shadow: 0 -1px rgba(0, 0, 0, 0.25);
+    transition-property: transform;
+    transition-duration: 0.2s;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.button:active .button-top {
+    transform: translateY(6px);
+}
+
+.button-top::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    border-radius: 4px;
+    width: 100%;
+    height: 100%;
+    box-sizing: content-box;
+    background-image: radial-gradient(#cd3f64, #9d3656);
+    text-align: center;
+    color: #fff;
+    box-shadow: inset 0 0 0px 1px rgba(255, 255, 255, 0.2),
+        0 1px 2px 1px rgba(255, 255, 255, 0.2);
+    transition-property: border-radius, padding, width, transform;
+    transition-duration: 0.2s;
+}
+
+.button:active .button-top::after {
+    border-radius: 6px;
+    padding: 0 2px;
+}
+
+.button-bottom {
+    position: absolute;
+    z-index: -1;
+    bottom: 4px;
+    left: 4px;
+    border-radius: 8px / 16px 16px 8px 8px;
+    padding-top: 6px;
+    width: calc(100% - 8px);
+    height: calc(100% - 10px);
+    box-sizing: content-box;
+    background-color: #803;
+    background-image: radial-gradient(
+            4px 8px at 4px calc(100% - 8px),
+            rgba(255, 255, 255, 0.25),
+            transparent
+        ),
+        radial-gradient(
+            4px 8px at calc(100% - 4px) calc(100% - 8px),
+            rgba(255, 255, 255, 0.25),
+            transparent
+        ),
+        radial-gradient(16px at -4px 0, white, transparent),
+        radial-gradient(16px at calc(100% + 4px) 0, white, transparent);
+    box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.5),
+        inset 0 -1px 3px 3px rgba(0, 0, 0, 0.4);
+    transition-property: border-radius, padding-top;
+    transition-duration: 0.2s;
+}
+
+.button:active .button-bottom {
+    border-radius: 10px 10px 8px 8px / 8px;
+    padding-top: 0;
+}
+
+.button-base {
+    position: absolute;
+    z-index: -2;
+    top: 4px;
+    left: 0;
+    border-radius: 12px;
+    width: 100%;
+    height: calc(100% - 4px);
+    background-color: rgba(0, 0, 0, 0.15);
+    box-shadow: 0 1px 1px 0 rgba(255, 255, 255, 0.75),
+        inset 0 2px 2px rgba(0, 0, 0, 0.25);
+}
+
+/* FIM DO BOTAO */
